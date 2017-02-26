@@ -37,9 +37,8 @@ commit() {
 
 if [ "${PLUGIN_ACTION}" = "clone" ]
 then
-	clone()
-
+	clone
 elif [ "${PLUGIN_ACTION}" = "commit" ]
 then
-	commit()
+	commit
 fi
