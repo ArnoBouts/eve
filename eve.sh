@@ -8,8 +8,8 @@
 
 clone() {
 	mkdir eve
-	echo "clone ${PLUGIN_GIT_REPOSITORY}"
-	git clone ${PLUGIN_GIT_REPOSITORY} eve
+	echo "Cloning ${PLUGIN_GIT_REPOSITORY}"
+	git clone ${PLUGIN_GIT_REPOSITORY} eve 2>&1 >/dev/null
 }
 
 commit() {
