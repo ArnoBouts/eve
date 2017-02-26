@@ -1,10 +1,10 @@
 #!/bin/sh
 
-${PLUGIN_ACTION:="commit"}
-${PLUGIN_GIT_USER_NAME:="Eve"}
-${PLUGIN_GIT_USER_EMAIL:="eve@no-cloud.fr"}
-${PLUGIN_GIT_REPOSITORY:=$(echo ${DRONE_REPO_LINK} | sed -e 's/-eve//1')}
-${PLUGIN_GIT_USER:=${DRONE_REPO_OWNER}}
+: ${PLUGIN_ACTION:="commit"}
+: ${PLUGIN_GIT_USER_NAME:="Eve"}
+: ${PLUGIN_GIT_USER_EMAIL:="eve@no-cloud.fr"}
+: ${PLUGIN_GIT_REPOSITORY:=$(echo ${DRONE_REPO_LINK} | sed -e 's/-eve//1')}
+: ${PLUGIN_GIT_USER:=${DRONE_REPO_OWNER}}
 
 clone() {
 	mkdir eve
@@ -35,11 +35,11 @@ commit() {
 	git push
 }
 
-if [[ ${PLUGIN_ACTION} == "clone" ]]
+if [[ "${PLUGIN_ACTION}" = "clone" ]]
 then
 	clone()
 
-elif [[ ${PLUGIN_ACTION} == "commit" ]]
+elif [[ "${PLUGIN_ACTION}" = "commit" ]]
 then
 	commit()
 fi
