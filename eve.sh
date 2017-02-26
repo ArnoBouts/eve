@@ -35,11 +35,11 @@ commit() {
 	git push
 }
 
-if [[ "${PLUGIN_ACTION}" = "clone" ]]
+if [ "${PLUGIN_ACTION}" = "clone" ]
 then
 	clone()
 
-elif [[ "${PLUGIN_ACTION}" = "commit" ]]
+elif [ "${PLUGIN_ACTION}" = "commit" ]
 then
 	commit()
 fi
