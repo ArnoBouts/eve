@@ -9,7 +9,7 @@
 clone() {
 	mkdir eve
 	echo "Cloning ${PLUGIN_GIT_REPOSITORY}"
-	git clone ${PLUGIN_GIT_REPOSITORY} eve 2>&1 >/dev/null
+	git clone -q ${PLUGIN_GIT_REPOSITORY} eve
 }
 
 commit() {
