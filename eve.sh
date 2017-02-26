@@ -16,8 +16,7 @@ commit() {
 
 	cd eve
 
-	git status -s
-	if [[ $(git status -s) == "" ]]
+	if [ "$(git status -s)" = "" ]
 	then
 		echo "Allready up-to-date"
 		exit 0
