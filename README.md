@@ -1,5 +1,16 @@
-Drone plugins that update automatically Dockerfile files to keep docker images up-to-date
+# Yet Another Tool to Automatically Update Docker Images (alias Eve)
 
-To keep images up-to-date, a digest is injected for each component needed to follow.
+Eve is formed of Drone plugins.
+
+Each one will check and inject the version number of a specific component into a Dockerfile.
+
+Plugins :
+
+- docker
+- git
+- mercurial
+- apk (alpine package manager)
+
+
 
 This plugin is used to clone and commit Dockerfile on a git repository
