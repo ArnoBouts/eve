@@ -4,12 +4,15 @@
 : ${PLUGIN_GIT_USER_NAME:="Eve"}
 : ${PLUGIN_GIT_USER_EMAIL:="eve@no-cloud.fr"}
 : ${PLUGIN_GIT_REPOSITORY:=$(echo ${DRONE_REPO_LINK} | sed -e 's/-eve//1')}
+: ${PLUGIN_GIT_BRANCH:="master"}
 : ${PLUGIN_GIT_USER:=${DRONE_REPO_OWNER}}
 
 clone() {
 	mkdir eve
 	echo "Cloning ${PLUGIN_GIT_REPOSITORY}"
 	git clone -q ${PLUGIN_GIT_REPOSITORY} eve
+	cd eve
+	git checkout ${PLUGIN_GIT_BRANCH}
 }
 
 commit() {
