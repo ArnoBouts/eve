@@ -29,7 +29,7 @@ commit() {
 	git config --global user.email "${PLUGIN_GIT_USER_EMAIL}"
 	git config --global push.default simple
 
-	echo ${PLUGIN_GIT_REPOSITORY} | sed -e "s#https://#https://${PLUGIN_GIT_USER}:${PLUGIN_GIT_PASSWORD}@#1" >> ~/.git-credentials
+	echo ${PLUGIN_GIT_REPOSITORY} | sed -e "s#https://#https://${PLUGIN_GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
 	git config --global credential.helper store
  
 	git commit -a -m "Auto update"
