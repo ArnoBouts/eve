@@ -5,7 +5,7 @@
 : ${PLUGIN_GIT_USER_EMAIL:="eve@no-cloud.fr"}
 : ${PLUGIN_GIT_REPOSITORY:=$(echo ${DRONE_REPO_LINK} | sed -e 's/-eve//1')}
 : ${PLUGIN_GIT_BRANCH:="master"}
-: ${PLUGIN_GIT_USER:=${DRONE_REPO_OWNER}}
+: ${GIT_USER:=${DRONE_REPO_OWNER}}
 
 clone() {
 	mkdir eve
@@ -25,12 +25,12 @@ commit() {
 		exit 0
 	fi
 
-	git config --global user.name "${PLUGIN_GIT_USER_NAME}"
-	git config --global user.email "${PLUGIN_GIT_USER_EMAIL}"
-	git config --global push.default simple
+	git config user.name "${PLUGIN_GIT_USER_NAME}"
+	git config user.email "${PLUGIN_GIT_USER_EMAIL}"
+	git config push.default simple
 
-	echo ${PLUGIN_GIT_REPOSITORY} | sed -e "s#https://#https://${PLUGIN_GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
-	git config --global credential.helper store
+	echo ${PLUGIN_GIT_REPOSITORY} | sed -e "s#https://#https://${GIT_USER}:${GIT_PASSWORD}@#1" >> ~/.git-credentials
+	git config credential.helper store
  
 	git commit -a -m "Auto update"
 
